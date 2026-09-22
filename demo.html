@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Try the interview — CareerCompass AI</title>
+<meta name="description" content="A conversational career interview: answer in your own words and get ranked career matches, a skill-gap breakdown, and a learning roadmap.">
+
+<!-- Set this to your deployed backend URL, or leave it out and edit js/config.js. -->
+<!-- <meta name="cc-api-base" content="https://your-api.onrender.com"> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/demo.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1F2A37">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5L13 13L8.5 15.5L11 11L15.5 8.5Z" fill="#C6871E" stroke="#C6871E" stroke-width="0.6"/></svg>
+      CareerCompass AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#problem">Problem</a></li>
+      <li><a href="index.html#how-it-works">How it works</a></li>
+      <li><a href="index.html#team">Team</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="btn btn-ghost lang-btn" data-lang-toggle data-i18n="lang.toggle">தமிழ்</button>
+      <a class="btn btn-ghost" href="share.html" data-i18n="nav.share">Share</a>
+      <a class="btn btn-ghost" href="dashboard.html" data-dashboard-link data-when="signed-in" data-i18n="nav.dashboard" hidden>Dashboard</a>
+      <a class="btn btn-ghost" href="login.html" data-when="signed-out" data-i18n="nav.signin">Sign in</a>
+      <a class="btn btn-ghost" href="#" data-when="signed-in" data-signout data-i18n="nav.signout" hidden>Sign out</a>
+    </div>
+  </div>
+</nav>
+
+<header style="padding:56px 0 8px;">
+  <div class="container" style="max-width:760px;">
+    <span class="hero-badge" id="modeBadge" data-i18n="demo.badge.checking">Connecting…</span>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);" data-i18n="demo.title">Tell me about yourself, in your own words.</h1>
+    <p class="lede" id="modeExplainer" data-i18n="demo.lede">This is a conversation, not a quiz. Answer in a sentence or two — there are no options to pick from and no right answers.</p>
+  </div>
+</header>
+
+<section style="padding-top:24px;">
+  <div class="container" style="max-width:760px;">
+
+    <!-- START -->
+    <div class="interview-card" id="startCard">
+      <p id="engineNote" class="engine-note"></p>
+
+      <fieldset class="scale-field" id="confidenceBeforeField">
+        <legend data-i18n="demo.confidenceBefore">Before we start: how sure are you about your career choice right now?</legend>
+        <div class="scale-row" id="confidenceBefore" role="radiogroup"></div>
+        <span class="field-hint" data-i18n="demo.confidenceScale">1 = not at all sure, 5 = very sure</span>
+      </fieldset>
+
+      <button class="btn btn-primary" id="startBtn" data-i18n="demo.start">Start the interview</button>
+    </div>
+
+    <!-- INTERVIEW -->
+    <div class="interview-card" id="interviewCard" hidden>
+      <div class="transcript" id="transcript" aria-live="polite"></div>
+
+      <div class="answer-row">
+        <textarea id="answerInput" rows="3" data-i18n-placeholder="demo.placeholder" placeholder="Type your answer…"></textarea>
+        <div class="answer-actions">
+          <span class="progress-label" id="progressLabel"></span>
+          <button class="btn btn-primary" id="sendBtn" data-i18n="demo.send">Send</button>
+        </div>
+      </div>
+      <p class="form-error" id="interviewError" hidden></p>
+    </div>
+
+    <!-- ACADEMICS -->
+    <div class="interview-card" id="academicsCard" hidden>
+      <h3 data-i18n="academics.title">Your marks (optional)</h3>
+      <p class="question-hint" data-i18n="academics.lede">Out of 100. This is 30% of the score — leave it blank and your answers carry all of it.</p>
+      <div class="marks-grid" id="marksGrid"></div>
+      <div class="hero-actions" style="margin-top:18px;">
+        <button class="btn btn-primary" id="useMarksBtn" data-i18n="academics.save">Use these marks</button>
+        <button class="btn btn-ghost" id="skipMarksBtn" data-i18n="academics.skip">Skip this</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-wrap" id="resultsWrap" hidden>
+      <div class="results-head">
+        <span class="section-tag" data-i18n="results.tag">your results</span>
+        <h2 data-i18n="results.title">Here's what fits, based on what you told me.</h2>
+        <p id="resultsIntro"></p>
+        <p class="save-note" id="saveNote"></p>
+        <p class="engine-chip" id="engineChip"></p>
+      </div>
+
+      <div id="matchList" class="match-list"></div>
+
+      <div class="consistency-card" id="consistencyCard" hidden>
+        <h4 data-i18n="results.consistency">Consistency check</h4>
+        <p id="consistencyText"></p>
+        <ul id="consistencyFlags" class="consistency-flags"></ul>
+      </div>
+
+      <p class="scoring-note" data-i18n="results.scoringNote"></p>
+
+      <div class="gap-card" id="gapCard">
+        <h3 id="gapTitle"></h3>
+        <div id="gapBars"></div>
+      </div>
+
+      <div class="roadmap-card">
+        <h3 data-i18n="results.roadmap">Suggested next steps</h3>
+        <ol id="roadmapList" class="roadmap-list"></ol>
+      </div>
+
+      <div class="feedback-card" id="feedbackCard">
+        <h3 data-i18n="feedback.title">Help us improve</h3>
+
+        <fieldset class="scale-field">
+          <legend data-i18n="feedback.rating">How useful were these results?</legend>
+          <div class="scale-row" id="ratingScale" role="radiogroup"></div>
+        </fieldset>
+
+        <fieldset class="scale-field">
+          <legend data-i18n="feedback.confidenceAfter">How sure are you about your career choice now?</legend>
+          <div class="scale-row" id="confidenceAfterScale" role="radiogroup"></div>
+          <span class="field-hint" data-i18n="demo.confidenceScale">1 = not at all sure, 5 = very sure</span>
+        </fieldset>
+
+        <fieldset class="scale-field">
+          <legend data-i18n="feedback.wouldAct">Would you act on the top 3 careers shown?</legend>
+          <div class="scale-row" id="wouldActScale" role="radiogroup"></div>
+        </fieldset>
+
+        <div class="field">
+          <label for="feedbackComment" data-i18n="feedback.comment">Anything to add? (optional)</label>
+          <textarea id="feedbackComment" rows="2" maxlength="500"></textarea>
+        </div>
+
+        <p class="form-error" id="feedbackError" hidden></p>
+        <button class="btn btn-primary" id="feedbackBtn" data-i18n="feedback.send">Send feedback</button>
+        <p class="save-note saved" id="feedbackThanks" hidden data-i18n="feedback.thanks">Thank you. This helps us improve.</p>
+      </div>
+
+      <div class="hero-actions" style="margin-top:28px;">
+        <button class="btn btn-ghost" id="retakeBtn" data-i18n="demo.retake">Start over</button>
+        <a class="btn btn-primary" href="index.html">Back to overview</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>CareerCompass AI · Team Pixel Pioneers · StartupTN Hackathon</span>
+    <span><a href="index.html">Overview</a></span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>

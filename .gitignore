@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+node_modules/
+
+# Backend (Flask + SQLite)
+backend/careercompass.db
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+backend/.venv/
+
+# Secrets — never commit a real API key
+backend/.env
+.env
+*.env.local
+
+# Python
+__pycache__/
+.pytest_cache/
+*.egg-info/

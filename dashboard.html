@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — CareerCompass AI</title>
+<meta name="description" content="Teachers see how a whole class is leaning and what skills to build. Parents see their child's matches and next steps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/demo.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1F2A37">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5L13 13L8.5 15.5L11 11L15.5 8.5Z" fill="#C6871E" stroke="#C6871E" stroke-width="0.6"/></svg>
+      CareerCompass AI
+    </a>
+    <div class="nav-cta">
+      <button class="btn btn-ghost lang-btn" data-lang-toggle data-i18n="lang.toggle">தமிழ்</button>
+      <a class="btn btn-ghost" href="demo.html" data-i18n="nav.demo">Try the interview</a>
+      <a class="btn btn-ghost" href="#" data-signout data-i18n="nav.signout">Sign out</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding:56px 0;">
+  <div class="container" style="max-width:880px;">
+    <div id="dashRoot">
+      <p class="question-hint" id="dashLoading">Loading…</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>CareerCompass AI · Team Pixel Pioneers</span>
+    <span><a href="index.html">Overview</a></span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — CareerCompass AI</title>
+<meta name="description" content="Sign in to save your career matches, track how your profile changes, and share results with a teacher or parent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/demo.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1F2A37">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5L13 13L8.5 15.5L11 11L15.5 8.5Z" fill="#C6871E" stroke="#C6871E" stroke-width="0.6"/></svg>
+      CareerCompass AI
+    </a>
+    <div class="nav-cta">
+      <button class="btn btn-ghost lang-btn" data-lang-toggle data-i18n="lang.toggle">தமிழ்</button>
+      <a class="btn btn-ghost" href="demo.html" data-i18n="nav.demo">Try the interview</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding:64px 0;">
+  <div class="container" style="max-width:520px;">
+
+    <div class="auth-card">
+      <h1 id="authTitle" data-i18n="auth.signin">Sign in</h1>
+      <p class="question-hint" id="authLede">Your results stay with your account, so you can come back to them.</p>
+
+      <form id="authForm" novalidate>
+        <!-- sign-up only -->
+        <div class="field signup-only" hidden>
+          <label for="role" data-i18n="auth.role">I am a</label>
+          <select id="role" name="role">
+            <option value="student" data-i18n="auth.student">Student</option>
+            <option value="teacher" data-i18n="auth.teacher">Teacher</option>
+            <option value="parent" data-i18n="auth.parent">Parent</option>
+          </select>
+        </div>
+
+        <div class="field signup-only" hidden>
+          <label for="name" data-i18n="auth.name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="email" data-i18n="auth.email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="password" data-i18n="auth.password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+          <span class="field-hint signup-only" hidden data-i18n="auth.passwordHint">At least 8 characters.</span>
+        </div>
+
+        <div class="field signup-only student-only" hidden>
+          <label for="branch" data-i18n="auth.branch">Branch or stream</label>
+          <input type="text" id="branch" name="branch" placeholder="CSE, Mechanical, Biology…">
+        </div>
+
+        <div class="field signup-only student-only" hidden>
+          <label for="college" data-i18n="auth.college">School or college</label>
+          <input type="text" id="college" name="college">
+        </div>
+
+        <div class="field signup-only class-code-field" hidden>
+          <label for="classCode" data-i18n="auth.classCode">Class code</label>
+          <input type="text" id="classCode" name="classCode" placeholder="CS2027" maxlength="20">
+          <span class="field-hint" id="classCodeHint"></span>
+        </div>
+
+        <p class="form-error" id="formError" hidden></p>
+
+        <button class="btn btn-primary btn-block" id="submitBtn" type="submit" data-i18n="auth.signin">Sign in</button>
+      </form>
+
+      <button class="link-button" id="toggleMode" data-i18n="auth.noAccount">New here? Create an account</button>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>CareerCompass AI · Team Pixel Pioneers</span>
+    <span><a href="index.html">Overview</a></span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>

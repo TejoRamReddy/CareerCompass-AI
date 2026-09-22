@@ -1,0 +1,20 @@
+# Web
+Flask==3.0.3
+flask-cors==4.0.1
+gunicorn==22.0.0
+
+# Auth
+PyJWT==2.9.0
+Werkzeug==3.0.3
+
+# Recommendation engine
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+
+# QR codes (pure Python, no other dependencies)
+segno==1.6.1
+
+# Gemini + config
+requests==2.32.3
+python-dotenv==1.0.1

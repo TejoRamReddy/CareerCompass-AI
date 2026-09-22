@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerCompass AI — a compass, not a coin flip</title>
+<meta name="description" content="CareerCompass AI is an AI-powered career development ecosystem built by Team Pixel Pioneers for a StartupTN hackathon, guiding students from career discovery to employment readiness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1F2A37">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5L13 13L8.5 15.5L11 11L15.5 8.5Z" fill="#C6871E" stroke="#C6871E" stroke-width="0.6"/></svg>
+      CareerCompass AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#tech">Tech</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="share.html">Share</a>
+      <a class="btn btn-ghost" href="login.html" data-when="signed-out">Sign in</a>
+      <a class="btn btn-ghost" href="dashboard.html" data-when="signed-in" hidden>Dashboard</a>
+      <a class="btn btn-primary" href="demo.html">Try the demo</a>
+      <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <ul class="nav-links" id="mobileMenu" style="display:none; flex-direction:column; padding:16px 28px 20px; gap:14px; border-top:1px solid var(--line);">
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#tech">Tech</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="demo.html">Try the demo →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-copy reveal">
+      <span class="hero-badge">Hackathon project · StartupTN problem statement</span>
+      <h1>Most students pick a career on a coin flip. We built the compass.</h1>
+      <p class="lede">CareerCompass AI is an AI-powered career development ecosystem that walks a student from career discovery to skill-building and employment readiness — not a quiz that spits out a job title and disappears.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="demo.html">Try the career interview →</a>
+        <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+      </div>
+      <p class="hero-quote">"Every student deserves a compass, not a coin flip."</p>
+    </div>
+    <div class="hero-art reveal">
+      <svg viewBox="0 0 260 260" width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="130" cy="130" r="112" fill="#FFFFFF" stroke="#E2DCCB" stroke-width="1.5"/>
+        <circle cx="130" cy="130" r="86" fill="none" stroke="#E2DCCB" stroke-width="1"/>
+        <g font-family="IBM Plex Mono" font-size="11" fill="#5C6577">
+          <text x="126" y="34">N</text>
+          <text x="126" y="234">S</text>
+          <text x="24" y="134">W</text>
+          <text x="228" y="134">E</text>
+        </g>
+        <g id="needle" style="transform-origin:130px 130px;">
+          <polygon points="130,60 140,130 130,124 120,130" fill="#C6871E"/>
+          <polygon points="130,200 140,130 130,136 120,130" fill="#182338"/>
+        </g>
+        <circle cx="130" cy="130" r="6" fill="#182338"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">01 — the problem</span>
+      <h2>Students from Tamil-medium and rural schools pick a branch, then hope for the best.</h2>
+    </div>
+    <div class="notebook reveal">
+      <div class="stat-row">
+        <div class="stat"><span class="num">Many</span><span class="label">students in Tamil Nadu pick a branch with no real guidance</span></div>
+        <div class="stat"><span class="num">First-Gen</span><span class="label">college students often have no family career network</span></div>
+        <div class="stat"><span class="num">4 Years</span><span class="label">can be spent in the wrong stream before it's noticed</span></div>
+      </div>
+      <p>Students from Tamil-medium and rural schools often pick engineering branches with no counselor and no roadmap to guide the choice. Getting it wrong means years spent in a mismatched stream, graduating with skills that don't line up with the job market.</p>
+      <p>WhatsApp groups and YouTube videos offer generic advice — not guidance personalised to a student's actual skills and situation. First-generation college students have no family network to lean on. CareerCompass AI aims to be that first reliable guide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">02 — the idea</span>
+      <h2>Existing platforms recommend careers. CareerCompass develops them.</h2>
+      <p>It's not just a career-recommendation platform — it's an AI-powered ecosystem that guides a student from discovery to skill development, preparation, and employment readiness.</p>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
+        <h3>Personalised</h3>
+        <p>Matches each student's unique mix of skills, subjects, hobbies, and academic background — not a generic quiz.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.2 5.6L20 11l-5.8 2.4L12 19l-2.2-5.6L4 11l5.8-2.4L12 3z"/></svg>
+        <h3>AI-powered</h3>
+        <p>Uses content-based filtering and cosine similarity to compare a student's profile against a career dataset.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5m0 14h16M8 15l3-3 2 2 5-5"/></svg>
+        <h3>Actionable</h3>
+        <p>Delivers a step-by-step learning roadmap and skill-gap analysis — not just a career label.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">03 — the difference</span>
+      <h2>Same problem, a different depth of help.</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead><tr><th>What changes</th><th>Existing platforms</th><th>CareerCompass</th></tr></thead>
+        <tbody>
+          <tr><td>Assessment</td><td class="old">Fixed quiz</td><td class="new">AI conversation</td></tr>
+          <tr><td>Result</td><td class="old">Generic result</td><td class="new">Personalised to the student</td></tr>
+          <tr><td>After the result</td><td class="old">Guidance ends there</td><td class="new">Continuous guidance</td></tr>
+          <tr><td>Skill gaps</td><td class="old">Not shown</td><td class="new">Skill-gap analysis</td></tr>
+          <tr><td>Next steps</td><td class="old">No roadmap</td><td class="new">Step-by-step learning roadmap</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">04 — coverage</span>
+      <h2>Beyond tech — 26 careers across every major stream.</h2>
+    </div>
+    <div class="coverage-grid reveal">
+      <div class="coverage-card">
+        <span class="count">10</span>
+        <h3>Tech &amp; Engineering</h3>
+        <div class="tag-list">
+          <span class="tag">Data Scientist</span><span class="tag">AI Engineer</span><span class="tag">Backend</span><span class="tag">Cloud</span><span class="tag">Cybersecurity</span><span class="tag">Mechanical</span><span class="tag">Civil</span><span class="tag">Electrical</span><span class="tag">Electronics</span><span class="tag">UI/UX</span>
+        </div>
+      </div>
+      <div class="coverage-card">
+        <span class="count">8</span>
+        <h3>Business, Law &amp; Government</h3>
+        <div class="tag-list">
+          <span class="tag">Chartered Accountant</span><span class="tag">Marketing</span><span class="tag">HR</span><span class="tag">Entrepreneurship</span><span class="tag">Financial Analyst</span><span class="tag">Lawyer</span><span class="tag">Civil Services</span><span class="tag">Policy Analyst</span>
+        </div>
+      </div>
+      <div class="coverage-card">
+        <span class="count">8</span>
+        <h3>Medicine, Science &amp; Creative</h3>
+        <div class="tag-list">
+          <span class="tag">Doctor</span><span class="tag">Biotechnologist</span><span class="tag">Pharmacist</span><span class="tag">Research Scientist</span><span class="tag">Psychologist</span><span class="tag">Graphic Designer</span><span class="tag">Content Writer</span><span class="tag">Animator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">05 — how it works</span>
+      <h2>From interview to roadmap.</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="step-mark">first</span>
+        <h3>Login &amp; Gemini interview</h3>
+        <ul>
+          <li>Gemini asks questions dynamically</li>
+          <li>Follow-ups based on prior answers</li>
+          <li>No predefined questionnaire</li>
+          <li>Ends when enough is known</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step-mark">then</span>
+        <h3>Profile extraction &amp; matching</h3>
+        <ul>
+          <li>Extracts skills, interests, subjects</li>
+          <li>Matches profile to career dataset</li>
+          <li>Ranks options by similarity score</li>
+          <li>Built with Gemini &amp; scikit-learn</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step-mark">finally</span>
+        <h3>Output to student</h3>
+        <ul>
+          <li>Top 3 recommended careers</li>
+          <li>Why each career fits</li>
+          <li>Skill gap — what's missing</li>
+          <li>Learning roadmap — next steps</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:56px; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;" class="reveal">
+      <div>
+        <h3>What the interview actually feels like</h3>
+        <p>Gemini asks one question at a time and decides what to ask next based on the answer — no multiple choice, just the student's own words.</p>
+        <p style="font-size:.9rem;"><strong>Reliability — "what if a student lies?"</strong> Gemini cross-checks consistency through follow-up questions. Phase 2 adds validation against aptitude tests, resumes, and academic records.</p>
+      </div>
+      <div class="transcript">
+        <div class="bubble ai"><span class="who">AI</span><p>Tell me a little about yourself.</p></div>
+        <div class="bubble"><span class="who">You</span><p>I'm studying CSE and I like coding.</p></div>
+        <div class="bubble ai"><span class="who">AI</span><p>Which part of coding do you enjoy most?</p></div>
+        <div class="bubble"><span class="who">You</span><p>Building websites — mostly backend.</p></div>
+        <div class="bubble ai"><span class="who">AI</span><p>Have you worked with databases?</p></div>
+        <div class="bubble"><span class="who">You</span><p>Yes, MySQL.</p></div>
+        <div class="bubble ai"><span class="who">AI</span><p>Great — I have what I need to match you.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="section-alt" id="tech">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">06 — under the hood</span>
+      <h2>System architecture</h2>
+      <p>How the pieces connect — from student input to final recommendation.</p>
+    </div>
+    <div class="arch reveal">
+      <div class="arch-node"><h4>Student</h4><p>Has a dynamic conversation with Gemini AI.</p></div>
+      <div class="arch-node"><h4>Frontend</h4><p>HTML · CSS · JavaScript</p></div>
+      <div class="arch-node"><h4>Flask backend</h4><p>Manages conversation state &amp; API calls.</p></div>
+      <div class="arch-node"><h4>Gemini AI + engine</h4><p>Interviews the student; filtering + cosine similarity rank careers.</p></div>
+      <div class="arch-node"><h4>Dataset + SQLite</h4><p>Career profiles &amp; student records.</p></div>
+      <div class="arch-node" style="flex-basis:210px;"><h4>Recommendations</h4><p>Top 3 careers, skill gaps, roadmap — explained by Gemini.</p></div>
+    </div>
+
+    <div style="margin-top:56px;" class="reveal">
+      <h3>Algorithm design</h3>
+      <p>Every recommendation is backed by a specific, named technique — not a black box.</p>
+      <div class="def-list">
+        <div class="def-item"><div class="term">Content-based filtering</div><div class="desc">Matches careers based on similarity between the student's profile and career profiles.</div></div>
+        <div class="def-item"><div class="term">Cosine similarity</div><div class="desc">Measures the mathematical distance between current skills and the skills a career requires — used for skill-gap analysis.</div></div>
+        <div class="def-item"><div class="term">Weighted scoring model</div><div class="desc">Weighs skills, interests, and academic performance to produce an ordered shortlist of careers.</div></div>
+        <div class="def-item"><div class="term">Random Forest (planned)</div><div class="desc">Once real student outcome data is collected, this model will learn from successful matches.</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;" class="reveal">
+      <h3>Where career data comes from</h3>
+      <p>Gemini doesn't invent careers — it works from a structured dataset built by the team, informed by NCS categories, O*NET-style occupation groupings, and AICTE skill framework references. This is a self-curated dataset, not a live API connection yet — Gemini can only select from and reason over what's already defined here. Phase 2 connects live to NCS &amp; O*NET APIs.</p>
+    </div>
+
+    <div style="margin-top:56px;" class="reveal">
+      <h3>Technology stack</h3>
+      <div class="stack-grid">
+        <div class="stack-group"><h4>Frontend</h4><div class="chip-row"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span></div></div>
+        <div class="stack-group"><h4>Backend</h4><div class="chip-row"><span class="chip">Python 3</span><span class="chip">Flask</span></div></div>
+        <div class="stack-group"><h4>AI / ML</h4><div class="chip-row"><span class="chip">Gemini API</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">numpy</span></div></div>
+        <div class="stack-group"><h4>Database</h4><div class="chip-row"><span class="chip">SQLite</span></div></div>
+        <div class="stack-group"><h4>Deployment</h4><div class="chip-row"><span class="chip">Render</span><span class="chip">Streamlit</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOT CHATGPT -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">07 — vs. a general chatbot</span>
+      <h2>Why not just use ChatGPT?</h2>
+      <p>A general-purpose chatbot vs. a career-specific system built on a real dataset and engine.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead><tr><th>Capability</th><th>ChatGPT</th><th>CareerCompass</th></tr></thead>
+        <tbody>
+          <tr><td>Career dataset</td><td class="old">None — general knowledge only</td><td class="new">26 curated careers, purpose-built</td></tr>
+          <tr><td>Recommendation engine</td><td class="old">No structured ranking</td><td class="new">Content-based filtering + scoring</td></tr>
+          <tr><td>Skill-gap analysis</td><td class="old">Only if you ask, informally</td><td class="new">Built-in, systematic</td></tr>
+          <tr><td>Learning roadmap</td><td class="old">Generic if prompted well</td><td class="new">Career-specific, structured</td></tr>
+          <tr><td>Career Twin (Phase 2)</td><td class="old">Not available</td><td class="new">Tracks readiness over time</td></tr>
+          <tr><td>Teacher &amp; parent dashboards</td><td class="old">Not available</td><td class="new">Built for the whole support circle</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- INNOVATION -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">08 — what makes this different</span>
+      <h2>Our innovation points</h2>
+    </div>
+    <div class="note-grid reveal">
+      <div class="note"><h4>Personalised prediction</h4><p>Skills, subjects and hobbies form a unique profile, built through a live Gemini conversation — not a generic test.</p></div>
+      <div class="note"><h4>Skill-gap analysis</h4><p>Shows exactly which skills are missing between the student and their target career.</p></div>
+      <div class="note"><h4>Step-by-step roadmap</h4><p>Tells students what to learn and in what order — not just a job title.</p></div>
+      <div class="note"><h4>Tamil language support</h4><p>The interview, the results, the skill gap and the roadmap all run in Tamil. Switch language at any point.</p></div>
+      <div class="note"><h4>Rural-first approach</h4><p>No counselors or paid subscriptions needed — works on any smartphone.</p></div>
+      <div class="note"><h4>A conversation, not a quiz</h4><p>Gemini holds a real conversation — same depth of insight, never the same script twice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 2 -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">09 — the road ahead</span>
+      <h2>Planned for Phase 2</h2>
+      <p>The MVP proves the core loop works. These four ideas turn a one-time recommendation into ongoing guidance.</p>
+    </div>
+    <div class="phase-grid reveal">
+      <div class="phase-card">
+        <span class="phase-tag">AI Devil's Advocate</span>
+        <div class="mock">STUDENT: "I want to become a Doctor."
+AI: "You mentioned you dislike Biology and enjoy programming. Biomedical Engineering may fit better. Want to compare both?"</div>
+        <p>Helps students avoid wrong career decisions by testing their choice against their own stated interests before they commit.</p>
+      </div>
+      <div class="phase-card">
+        <span class="phase-tag">Career Twin</span>
+        <div class="mock">Your profile today: Python ✓ · SQL ✓ · ML ✗ · Cloud ✗
+Target: AI Engineer — Readiness 68%, ~5 months at current pace</div>
+        <p>Turns a static recommendation into a living tracker — students see their gap close over time.</p>
+      </div>
+      <div class="phase-card">
+        <span class="phase-tag">Career Simulation</span>
+        <div class="mock">Backend Developer — 9am review bug reports
+11am design a schema · 2pm pair-debug · 5pm document the API</div>
+        <p>A "day in the life" preview before the student commits to a title they don't actually understand yet.</p>
+      </div>
+      <div class="phase-card">
+        <span class="phase-tag">AI Career Coach</span>
+        <div class="mock">Month 1: Python fundamentals + 1 small project
+Month 2: SQL basics, start a portfolio project</div>
+        <p>Keeps students accountable after the roadmap is shown — checks in, adjusts pace, nudges next steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL IMPACT + DASHBOARDS -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">10 — who this is for</span>
+      <h2>Built for the students generic tools tend to overlook</h2>
+    </div>
+    <div class="pillars reveal" style="grid-template-columns:repeat(4,1fr);">
+      <div class="pillar"><h3>First-gen students</h3><p style="font-size:.88rem;">No family career network to lean on — CareerCompass aims to be that first reliable guide.</p></div>
+      <div class="pillar"><h3>Tamil-medium students</h3><p style="font-size:.88rem;">Answer in Tamil and read your results in Tamil — the English-only barrier is gone.</p></div>
+      <div class="pillar"><h3>Rural Tamil Nadu</h3><p style="font-size:.88rem;">Runs on any basic smartphone — no counseling centres or paid subscriptions.</p></div>
+      <div class="pillar"><h3>Wrong-branch prevention</h3><p style="font-size:.88rem;">Helps students choose the right stream before admission, at the root.</p></div>
+    </div>
+
+    <div style="margin-top:56px;" class="reveal">
+      <h3>Stakeholder dashboards</h3>
+      <p>CareerCompass isn't just for students — teachers and parents stay in the loop too.</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th></th><th>Teacher dashboard</th><th>Parent dashboard</th></tr></thead>
+          <tbody>
+            <tr><td>Overview</td><td>Student progress across the class</td><td>Career report in plain language</td></tr>
+            <tr><td>Trends</td><td>Career distribution — where interests cluster</td><td>Skill progress over time</td></tr>
+            <tr><td>Focus areas</td><td>Common weak skills to target in class</td><td>The learning roadmap ahead</td></tr>
+            <tr><td>Suggestions</td><td>Recommended workshops based on gaps</td><td>How to support their child at home</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADOPTION + RESPONSIBLE AI -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">11 — reaching students</span>
+      <h2>Adoption strategy</h2>
+      <p>Real-world reach matters as much as real-world tech.</p>
+    </div>
+    <div class="def-list reveal">
+      <div class="def-item"><div class="term">Government schools</div><div class="desc">Free access via web &amp; app in classrooms.</div></div>
+      <div class="def-item"><div class="term">Colleges &amp; universities</div><div class="desc">Integrated with placement &amp; counseling cells.</div></div>
+      <div class="def-item"><div class="term">Android application</div><div class="desc">Mobile-first — works on any budget smartphone.</div></div>
+      <div class="def-item"><div class="term">Web portal</div><div class="desc">Accessible from any device — instant QR code access, no installation.</div></div>
+      <div class="def-item"><div class="term">Naan Mudhalvan &amp; skill centres</div><div class="desc">Plugged into state-run skill development missions.</div></div>
+      <div class="def-item"><div class="term">Career awareness camps</div><div class="desc">Offline outreach in rural &amp; first-generation communities.</div></div>
+    </div>
+
+    <div style="margin-top:56px;" class="reveal">
+      <h3>Responsible AI</h3>
+      <p>Career guidance touches a student's future — the team takes that seriously.</p>
+      <div class="def-list">
+        <div class="def-item"><div class="term">Secure by design</div><div class="desc">Passwords are hashed with PBKDF2-HMAC-SHA256 and a per-user salt before they reach the database — the plain text is never stored. Sessions use signed tokens.</div></div>
+        <div class="def-item"><div class="term">Suggestions, not decisions</div><div class="desc">The student always makes the final call.</div></div>
+        <div class="def-item"><div class="term">Consent first (Phase 2)</div><div class="desc">Clear opt-in before the AI interview begins.</div></div>
+        <div class="def-item"><div class="term">Human review</div><div class="desc">A teacher sees the shape of their class; a parent sees one student’s result, and only after that student shares a code. Neither sees the transcript.</div></div>
+        <div class="def-item"><div class="term">No data sold</div><div class="desc">Student data stays within CareerCompass — never shared with third parties.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">12 — MVP vs. what's next</span>
+      <h2>The road ahead</h2>
+    </div>
+    <div class="roadmap-grid reveal">
+      <div class="roadmap-col">
+        <h3>Phase 1 — MVP (built)</h3>
+        <ul>
+          <li>Gemini career interview &mdash; open questions, no fixed script</li>
+          <li>Recommendation engine over 26 careers (scikit-learn cosine similarity)</li>
+          <li>Weighted scoring: 70% interview profile, 30% academic marks</li>
+          <li>Skill-gap analysis and a learning roadmap</li>
+          <li>Accounts for students, teachers and parents</li>
+          <li>Consistency check &mdash; Gemini asks for a real example and flags claims nothing backs up</li>
+          <li>Teacher dashboard: class distribution, common gaps, workshop ideas</li>
+          <li>Parent dashboard: matches, progress over time, how to help at home</li>
+          <li>Full Tamil interface and Tamil interview</li>
+          <li>Installable on a phone home screen, with a QR code for classrooms</li>
+          <li>Post-interview feedback: usefulness, confidence before and after</li>
+          <li>Flask + SQLite backend, ready to deploy on Render</li>
+        </ul>
+      </div>
+      <div class="roadmap-col phase2">
+        <h3>Phase 2 — enhancements</h3>
+        <ul>
+          <li>Live NCS &amp; O*NET API integration</li>
+          <li>Consent flow &amp; human counselor review</li>
+          <li>Resume analyser — auto-extract skills</li>
+          <li>More languages &mdash; Hindi, Telugu and beyond</li>
+          <li>Resume, internship &amp; scholarship matching</li>
+          <li>Voice-based career counselor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">13 — the team</span>
+      <h2>Team Pixel Pioneers</h2>
+      <p>Built for a StartupTN hackathon problem statement.</p>
+    </div>
+    <div class="team-grid reveal">
+      <div class="team-card"><div class="avatar">T</div><h4>K. Tejo Ram</h4></div>
+      <div class="team-card"><div class="avatar">K</div><h4>Kevin Adithya</h4></div>
+      <div class="team-card"><div class="avatar">L</div><h4>Lalitha</h4></div>
+      <div class="team-card"><div class="avatar">M</div><h4>Mageshwaran</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-ink cta-final">
+  <div class="container reveal">
+    <span class="section-tag" style="color:#D9A54A;">try it yourself</span>
+    <h2>See what the AI would tell you.</h2>
+    <p style="color:#C3CADA; margin:0 auto 1.6em; text-align:center;">A working demo of the matching engine — answer a few quick questions and get real ranked results, skill gaps, and a roadmap.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="demo.html">Try the career interview →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>CareerCompass AI · Team Pixel Pioneers · StartupTN Hackathon</span>
+    <span><a href="demo.html">Demo</a> · <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function(){ CC.mountNav(); });</script>
+<script src="js/pwa.js"></script>
+</body>
+</html>

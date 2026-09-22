@@ -1,0 +1,30 @@
+# Render blueprint. Push this repo, then in Render: New → Blueprint → pick the repo.
+# Set GEMINI_API_KEY and ALLOWED_ORIGINS in the dashboard — never commit them.
+services:
+  - type: web
+    name: careercompass-ai-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: SECRET_KEY
+        generateValue: true        # Render generates and stores this for you
+      - key: GEMINI_API_KEY
+        sync: false                # paste it in the dashboard
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
+      - key: ALLOWED_ORIGINS
+        sync: false                # e.g. https://your-username.github.io
+      - key: FLASK_DEBUG
+        value: "false"
+      - key: DATABASE_PATH
+        value: /var/data/careercompass.db
+    disk:
+      name: careercompass-data
+      mountPath: /var/data         # keeps the SQLite file across deploys
+      sizeGB: 1
