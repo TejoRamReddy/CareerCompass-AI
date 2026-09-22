@@ -13,7 +13,7 @@
    ========================================================================== */
 
 // 👇 EDIT THIS ONE LINE after you deploy the backend to Render.
-const PRODUCTION_API_BASE = 'https://careercompass-ai-api.onrender.com';
+const PRODUCTION_API_BASE = 'https://careercompass-ai-2-us6k.onrender.com';
 
 function resolveApiBase() {
   const fromQuery = new URLSearchParams(location.search).get('api');
